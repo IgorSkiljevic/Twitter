@@ -36,7 +36,7 @@ public class Twitter {
 	public void unesi(String korisnik, String poruka) {
 		// Pravi se nova poruka i puni podacima.
 		TwitterPoruka tp = new TwitterPoruka();
-		tp.setKorisnik("korisnik");
+		tp.setKorisnik(korisnik);
 		tp.setPoruka(poruka);
 		// Poruka se unosi u listu na kraj
 		poruke.addLast(tp);
@@ -56,7 +56,7 @@ public class Twitter {
 	 */
 	
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
-		if (tag == null || tag.isEmpty())
+		if (tag == null || tag.trim().isEmpty())
 			throw new RuntimeException("Morate uneti tag");
 		// Ako je maxBroj <=0, vraca maxBroj se postavlja na 100 poruka
 		if (maxBroj <= 0)
@@ -73,10 +73,30 @@ public class Twitter {
 		for (int i = 0; i < poruke.size(); i++)
 			if (poruke.get(i).getPoruka().indexOf(tag) != -1)
 				if (brojac < maxBroj) {
-					rezultat[brojac + 1] = poruke.get(i);
+					rezultat[brojac] = poruke.get(i);
 					brojac++;
 				} else
 					break;
 		return rezultat;
 	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Twitter other = (Twitter) obj;
+		if (poruke == null) {
+			if (other.poruke != null)
+				return false;
+		} else if (!poruke.equals(other.poruke))
+			return false;
+		return true;
+	}
+	
+	
 }
