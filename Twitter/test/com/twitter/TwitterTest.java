@@ -46,18 +46,14 @@ public class TwitterTest {
 		t.unesi("Igor", "#Badges");
 		t.unesi("Nikola Jokic", "#NBAVote #Badges");
 
-		for (int i = 0; i < listaPoruka.size(); i++) {
-			assertEquals(listaPoruka.get(i), t.vratiSvePoruke().get(i));
-		}
+		assertEquals(listaPoruka, t.vratiSvePoruke());
 	}
 
 	@Test
 	public void testUnesi() {
 		t.unesi("Igor", "#Badges");
 		t.unesi("Nikola Jokic", "#NBAVote #Badges");
-		for (int i = 0; i < listaPoruka.size(); i++) {
-			assertEquals(listaPoruka.get(i), t.vratiSvePoruke().get(i));
-		}
+		assertEquals(listaPoruka, t.vratiSvePoruke());
 	}
 
 	@Test(expected = java.lang.RuntimeException.class)

@@ -23,7 +23,7 @@ public class TwitterPoruka {
 	/**
 	 * Metoda koja vraca korisnika
 	 * 
-	 * @return Korisnik
+	 * @return vraca String korisnik, koji predstavlja ime korisnika.
 	 */
 	public String getKorisnik() {
 		return korisnik;
@@ -32,8 +32,11 @@ public class TwitterPoruka {
 	/**
 	 * Metoda postavlja atribut korisnik na zadatu vrednost
 	 * 
-	 * @param korisnik
+	 * @param korisnik-
+	 *            Predstavlja ime korisnika
 	 * @throws java.lang.RuntimeException
+	 *             Dolazi do izuzetka ako je ulazini parametar Korisnik prazan
+	 *             String ili ako ima vrednost null
 	 */
 
 	public void setKorisnik(String korisnik) {
@@ -54,8 +57,11 @@ public class TwitterPoruka {
 	/**
 	 * Metoda postavlja vrednost atributa poruka
 	 * 
-	 * @param poruka
+	 * @param poruka-
+	 *            predstavlja sadrzaj poruke
 	 * @throws java.lang.RuntimeException
+	 *             Do izuzetka dolazi ako je vrednost ulaznog atributa poruka
+	 *             prazan String ili null
 	 */
 	public void setPoruka(String poruka) {
 		if (poruka == null || poruka.trim().isEmpty() || poruka.length() > 140)
@@ -67,13 +73,20 @@ public class TwitterPoruka {
 	 * Metoda vraca string sa svim atributima klase TwitterPoruka u
 	 * odgovarajucem formatu
 	 * 
-	 * @return String
+	 * @return String - vraca String sa svim podacima o TwitterPoruci u tacno
+	 *         odredjenom formatu
 	 */
 	public String toString() {
 		return "KORISNIK:" + korisnik + " PORUKA:" + poruka;
 	}
 
-
+	/**
+	 * Metoda proverava da li je objekat koji poredimo sa datim objektom klase
+	 * TwitterPoruka jedan datom objektu. Objekti su jednaki ako su im atributi
+	 * korisnik i poruka jednaki.
+	 * 
+	 * @return true(ako su objekti jednaki) ili false(ako su objekti razliciti)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -95,5 +108,5 @@ public class TwitterPoruka {
 			return false;
 		return true;
 	}
-	
+
 }

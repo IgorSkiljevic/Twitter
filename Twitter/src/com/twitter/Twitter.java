@@ -30,8 +30,8 @@ public class Twitter {
 	 * Kreira novu poruku i puni je podacima
 	 * Poruka se unosi na kraj liste 'poruke'
 	 * 
-	 * @param korisnik
-	 * @param poruka
+	 * @param korisnik predstavlja ime Korisnika koji se unosi u listu
+	 * @param poruka predstavlja pruku koju je postavio korisnik
 	 */
 	public void unesi(String korisnik, String poruka) {
 		// Pravi se nova poruka i puni podacima.
@@ -49,9 +49,9 @@ public class Twitter {
 	 * koji se vraca kao povratna vrednost.
 	 * Ako je maxBroj manji ili jednak nuli, maxBroj je postavlja na 100
 	 * 
-	 * @throws java.lang.RuntimeException
-	 * @param maxBroj
-	 * @param tag
+	 * @throws java.lang.RuntimeException u slucaju da je unet String tag koji je prazan ili ime null vrednost
+	 * @param maxBroj Obelezava maksimalan broj poruka koje treba da se vrate
+	 * @param tag predstavlja identifikator za pronalazenje poruka
 	 * @return niz objekata klase TwitterPoruka
 	 */
 	
@@ -81,6 +81,11 @@ public class Twitter {
 	}
 
 
+	/**
+	 * Metoda proverava da li je objekat koji poredimo sa datim objektom iz klase Twitter
+	 * jedan datom objektu. Objekti su jednaki ako su im sve poruke jednake.
+	 * @return true(ako su objekti jednaki) ili false(ako su objekti razliciti)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
